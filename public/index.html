@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/modal.css"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="panel">
+    <span class="close">X</span>
+    <div class="title">添加学生信息</div>
+    <p class="content">
+        <input type="text" id="Sname" class="Input" placeholder="请输入姓名">
+        <input type="text" id="Ssex" class="Input" placeholder="请输入性别">
+        <input type="text" id="Sage" class="Input" placeholder="请输入年龄">
+    </p>
+    <div class="sure">提交更改</div>
+</div>
+<div class="panel">
+    <span class="close">X</span>
+    <div class="title">添加学校信息</div>
+    <p class="content">
+        <input type="text" id="SCname" class="Input" placeholder="请输入学校名称">
+        <input type="text" id="SCtype" class="Input" placeholder="请输入学校类型">
+        <input type="text" id="SCage" class="Input" placeholder="请输入学校课程">
+    </p>
+    <div class="sure">提交更改</div>
+</div>
+<div class="shadow"></div>
+
+
+<div>
+    <div id="student" class="column">
+        <div class="form-group">
+            <select id="studioId" class="form-control"
+                    data-style="btn-info" onChange="chooseStudentId()">
+                <option value='' hidden>可以选择学生..</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+                <option value=''>huang</option>
+            </select>
+        </div>
+        <button class="Button btn">添加学生</button>
+    </div>
+    <div id="school" class="column">
+        <div class="form-group">
+            <select id="" class="form-control"
+                    data-style="btn-info" onChange="chooseSchool()">
+                <option value='' hidden>可以选择学校..</option>
+            </select>
+        </div>
+        <button class="Button btn">添加学校</button>
+    </div>
+    <div id="course" class="column">
+        <p>课程表</p>
+    </div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="./modal.js"></script>
+<script src="./src/student"></script>
+<script>
+    function addStudent() {
+        let Sname = $('#Sname').text();
+        let Ssex = $('#Ssex').text();
+        let Sage = $('#Sage').text();
+        let data = {"Sname": Sname, "Ssex": Ssex, "Sage": Sage};
+
+        let s = new Student();
+        s.addStudent(data);
+    }
+</script>
+</body>
+</html>
